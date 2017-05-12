@@ -48,7 +48,7 @@ arch_partitionning_create_script(){
                 size="+$size"
             fi
             echo "n" >>$script
-            echo "l" >>$script
+#            echo "l" >>$script
             echo "" >>$script
             echo "$size" >>$script
      

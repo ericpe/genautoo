@@ -31,9 +31,10 @@ package_update_and_install_list $GLOBAL_CHROOT_DIR_INSTALLER/$GLOBAL_SPLITTED_DI
 common_print_message "[$script_name] installaling the kernel"
 kernel_install_kernel
 
+bash
 common_print_message "[$script_name] installaling bootloader"
 bootloader_install_bootloader
-
+bash
 common_print_message "[$script_name] executing the [post_install_chroot] section"
 $GLOBAL_CHROOT_DIR_INSTALLER/$GLOBAL_SPLITTED_DIR/post_install_chroot
 

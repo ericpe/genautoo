@@ -28,7 +28,11 @@ fi
 cp $CONFIG_FILE $GLOBAL_INSTALL_DIR/root/
 
 #the chroot script (install and compile packages)
-chroot $GLOBAL_INSTALL_DIR $GLOBAL_CHROOT_DIR_INSTALLER/$GLOBAL_BASE_DIR_INSTALLER/stages/chroot.sh
+echo GLOBAL_INSTALL_DIR $GLOBAL_INSTALL_DIR
+echo GLOBAL_CHROOT_DIR_INSTALLER $GLOBAL_CHROOT_DIR_INSTALLER
+echo GLOBAL_BASE_DIR_INSTALLER $GLOBAL_BASE_DIR_INSTALLER
+echo /stages/chroot.sh
+chroot $GLOBAL_INSTALL_DIR $GLOBAL_CHROOT_DIR_INSTALLER/installer/stages/chroot.sh
 
 #the post chroot script
 ./stages/postchroot.sh

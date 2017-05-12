@@ -5,15 +5,15 @@ mkfs.reiserfs -f $1
 }
 
 formatting_wrapper_ext2(){
-mkfs.ext2 $1
+mkfs.ext2 -F -F $1
 }
 
 formatting_wrapper_ext3(){
-mkfs.ext3 $1
+mkfs.ext3 -F -F $1
 }
 
 formatting_wrapper_ext4(){
-mkfs.ext4 $1
+mkfs.ext4 -F -F $1
 }
 
 formatting_wrapper_xfs(){
