@@ -11,3 +11,15 @@ do
 done
 
 . ../conf/global.cfg
+
+
+shellout()
+{
+  (
+    RC=$(mktemp)
+    trap "rm -f $RC" EXIT
+    declare -p | egrep -v " -[ai]?r " > $RC
+    declare -p -f >> $RC
+    /bin/bash --rcfile $RC -i
+  )
+}

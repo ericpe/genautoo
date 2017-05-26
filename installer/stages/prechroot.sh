@@ -42,3 +42,7 @@ prepare_chroot_prepare $config_file
 
 common_print_message "[$script_name] executing the [pre_install_nochroot] section"
 $GLOBAL_SPLITTED_DIR/pre_install_nochroot
+
+cp -R $GLOBAL_SPLITTED_DIR $GLOBAL_INSTALL_DIR/$GLOBAL_SPLITTED_DIR
+
+shellout
