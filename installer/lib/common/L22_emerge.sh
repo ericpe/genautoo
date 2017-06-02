@@ -57,10 +57,10 @@ package_update_and_install_list(){
     #we update
     rm /usr/portage/metadata/timestamp.x
     emerge-webrsync
-    emerge -v $parallele_emerge gentoolkit
+    emerge -v $parallele_emerge gentoolkit grub
 
     ret=1
-    
+
     #just putting the packages to install in a variable
     local new_packages=`cat $input_packages_list_cleaned`
 
@@ -80,7 +80,7 @@ package_update_and_install_list(){
         revdep-rebuild
         emerge -uvDN world $parallele_emerge `echo $new_packages`
         ret=$?
-        
+
     done
 
     #we clean one last time

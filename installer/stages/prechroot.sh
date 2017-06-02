@@ -45,4 +45,4 @@ $GLOBAL_SPLITTED_DIR/pre_install_nochroot
 
 cp -R $GLOBAL_SPLITTED_DIR $GLOBAL_INSTALL_DIR/$GLOBAL_SPLITTED_DIR
 
-shellout
+#shellout

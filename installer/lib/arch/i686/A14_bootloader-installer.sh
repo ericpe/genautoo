@@ -47,7 +47,11 @@ arch_get_grub_number(){
 
 arch_bootloader_install(){
     #function configuring the bootloader
-    
+
+    if [ -h /etc/mtab ] ; then
+      rm -f /etc/mtab
+    fi
+
     grep -v rootfs /proc/mounts >/etc/mtab
 
     emerge grub
@@ -58,7 +62,7 @@ arch_bootloader_install(){
     local root_partition=`bootloader_get_partition "/"`
     local boot_partition=`bootloader_get_partition "/boot/$kernel"`
 
-        
+
     local grub_disk=`arch_bootloader_get_grub_boot_disk $boot_partition`
     local boot_disk=`arch_bootloader_get_disk $boot_partition`
     local grub_number=`arch_get_grub_number $boot_partition`
@@ -80,7 +84,7 @@ arch_bootloader_install(){
 #kernel /$kernel root=$root_partition
 #initrd /$initrd
 #EOF
-    grub2-install $boot_disk
-    grub2-mkconfig -o /boot/grub/grub.cfg
+    grub-install $boot_disk
+    grub-mkconfig -o /boot/grub/grub.cfg
 }
 

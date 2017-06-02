@@ -10,7 +10,7 @@ common_print_message "[$script_name] updating the environment"
 source /etc/profile
 env-update
 
-shellout
+#shellout
 
 common_print_message "[$script_name] loading of the global variables" 
 . $GLOBAL_SPLITTED_DIR/global
@@ -33,10 +33,9 @@ package_update_and_install_list $GLOBAL_SPLITTED_DIR/packages
 common_print_message "[$script_name] installaling the kernel"
 kernel_install_kernel
 
-bash
 common_print_message "[$script_name] installaling bootloader"
 bootloader_install_bootloader
-bash
+
 common_print_message "[$script_name] executing the [post_install_chroot] section"
 $GLOBAL_SPLITTED_DIR/post_install_chroot
 

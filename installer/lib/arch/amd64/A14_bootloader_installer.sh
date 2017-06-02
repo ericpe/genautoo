@@ -47,7 +47,10 @@ arch_get_grub_number(){
 
 arch_bootloader_install(){
     #function configuring the bootloader
-    
+
+    if [ -h /etc/mtab ] ; then
+      rm -f /etc/mtab
+    fi
     grep -v rootfs /proc/mounts >/etc/mtab
 
     emerge grub
@@ -80,8 +83,8 @@ arch_bootloader_install(){
 #kernel /$kernel root=$root_partition
 #initrd /$initrd
 #EOF
-    grub2-install $boot_disk
-    grub2-mkconfig -o /boot/grub/grub.cfg
+    grub-install $boot_disk
+    grub-mkconfig -o /boot/grub/grub.cfg
 
 }
 
