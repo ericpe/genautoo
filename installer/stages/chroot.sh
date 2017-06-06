@@ -10,8 +10,6 @@ common_print_message "[$script_name] updating the environment"
 source /etc/profile
 env-update
 
-#shellout
-
 common_print_message "[$script_name] loading of the global variables" 
 . $GLOBAL_SPLITTED_DIR/global
 
@@ -42,4 +40,6 @@ $GLOBAL_SPLITTED_DIR/post_install_chroot
 common_print_message "[$script_name] setting the root password"
 password_set_password
 
+common_print_message "[$script_name] stopping crazy nic naming"
+touch /etc/udev/rules.d/80-net-name-slot.rules
 
